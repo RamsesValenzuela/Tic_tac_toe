@@ -17,7 +17,7 @@ namespace Tres_En_Linea
 
 
 
-            CreateBoard();
+            
 
             do
             {
@@ -31,6 +31,9 @@ namespace Tres_En_Linea
                     drawXorO(player, input);
 
                 }
+
+                CreateBoard();
+
 
                 do
                 {
@@ -92,6 +95,7 @@ namespace Tres_En_Linea
         //Metodo que genera el tablero de 3 en linea.
         public static void CreateBoard()
         {
+            Console.Clear();
             Console.WriteLine("     |     |");
             Console.WriteLine("  {0}  |  {1}  |  {2}", gameBoard[0,0], gameBoard[0, 1], gameBoard[0, 2]);
             Console.WriteLine("_____|_____|_____");
