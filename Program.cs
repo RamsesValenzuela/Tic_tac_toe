@@ -34,13 +34,46 @@ namespace Tres_En_Linea
 
                 CreateBoard();
 
-
+                //Code that check if the input is a valid option 
+                #region
                 do
                 {
                     Console.WriteLine("\n Player {0} choose a kbox to check...", player);
-                    input = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Ingrese un numero valido");
+                    }
+
+                    if ((input == 1) && (gameBoard[0, 0] == '1'))
+                        isCorrect = true;
+                    else if((input == 2) && (gameBoard[0,1] == '2'))
+                        isCorrect = true;
+                    else if ((input == 3) && (gameBoard[0, 2] == '3'))
+                        isCorrect = true;
+                    else if ((input == 4) && (gameBoard[1, 0] == '4'))
+                        isCorrect = true;
+                    else if ((input == 5) && (gameBoard[1, 1] == '5'))
+                        isCorrect = true;
+                    else if ((input == 6) && (gameBoard[1, 2] == '6'))
+                        isCorrect = true;
+                    else if ((input == 7) && (gameBoard[2, 0] == '7'))
+                        isCorrect = true;
+                    else if ((input == 8) && (gameBoard[2, 1] == '8'))
+                        isCorrect = true;
+                    else if ((input == 9) && (gameBoard[2, 2] == '9'))
+                        isCorrect = true;
+                    else
+                    {
+                        Console.WriteLine("\nPlease write other number");
+                        isCorrect = false;
+                    }
 
                 } while (!isCorrect);
+                #endregion
 
             } while (true);
 
