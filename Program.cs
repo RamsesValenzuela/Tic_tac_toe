@@ -34,6 +34,44 @@ namespace Tres_En_Linea
 
                 CreateBoard();
 
+                //Check if that player won
+                #region
+                char[] marks = { 'X', 'O' };
+
+                foreach(char m in marks)
+                {
+                    if ((gameBoard[0,0] == m) && (gameBoard[0, 1] == m) && (gameBoard[0, 2] == m) ||
+                        (gameBoard[1, 0] == m) && (gameBoard[1, 1] == m) && (gameBoard[1, 2] == m) ||
+                        (gameBoard[2, 0] == m) && (gameBoard[2, 1] == m) && (gameBoard[2, 2] == m) ||
+                        (gameBoard[0, 0] == m) && (gameBoard[1, 0] == m) && (gameBoard[2, 0] == m) ||
+                        (gameBoard[0, 1] == m) && (gameBoard[1, 1] == m) && (gameBoard[2, 1] == m) ||
+                         (gameBoard[0, 2] == m) && (gameBoard[1, 2] == m) && (gameBoard[2, 2] == m) ||
+                         (gameBoard[0, 0] == m) && (gameBoard[1, 1] == m) && (gameBoard[2, 2] == m) ||
+                         (gameBoard[0, 2] == m) && (gameBoard[1, 1] == m) && (gameBoard[2, 0] == m) )
+                    {
+                        if (m == 'X')
+                        {
+                            Console.WriteLine("The winner is player 2");
+                        }
+                        else
+                        {
+                            Console.WriteLine("The winner is player 1");
+                        }
+
+                        Console.WriteLine("Press a key to play again");
+                        Console.Read();
+                        Resetear();
+                        input = 0;
+                        break;
+
+                    }
+
+
+
+                }
+
+                #endregion
+
                 //Code that check if the input is a valid option 
                 #region
                 do
@@ -74,6 +112,8 @@ namespace Tres_En_Linea
 
                 } while (!isCorrect);
                 #endregion
+
+
 
             } while (true);
 
@@ -124,6 +164,19 @@ namespace Tres_En_Linea
             {'4','5','6'},
             {'7','8','9'},
 };
+
+        static char[,] NewGameBoard =
+{
+            {'1','2','3'},
+            {'4','5','6'},
+            {'7','8','9'},
+};
+
+        public static void Resetear()
+        {
+            gameBoard = NewGameBoard;
+            CreateBoard();
+        }
 
         //Metodo que genera el tablero de 3 en linea.
         public static void CreateBoard()
